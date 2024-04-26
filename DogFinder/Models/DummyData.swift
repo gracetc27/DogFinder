@@ -9,8 +9,14 @@ import Foundation
 
 @Observable
 class DummyData {
-    var dogExample: [DogImage] = loadJson(fileName: "dogimagesResponse.json", asType: [DogImage].self)
+    var dogExample: [DogImage] = loadJson(fileName: "BreedImages-5.json", asType: [DogImage].self)
+    var breedInfoExample: [BreedInfo] = loadJson(fileName: "breeds.json", asType: [BreedInfo].self)
+
+   static func loadImages(id: Int) -> [DogImage] {
+        loadJson(fileName: "BreedImages-\(id).json", asType: [DogImage].self)
+    }
 }
+
 
 
 func loadJson<Model: Decodable>(fileName: String, asType: Model.Type) -> Model {
@@ -21,6 +27,7 @@ func loadJson<Model: Decodable>(fileName: String, asType: Model.Type) -> Model {
     do {
         let data = try Data(contentsOf: url)
         let decoder = JSONDecoder()
+        decoder.keyDecodingStrategy = .convertFromSnakeCase
         let jsonData = try decoder.decode(Model.self, from: data)
         return jsonData
     } catch {

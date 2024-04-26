@@ -8,19 +8,26 @@
 import SwiftUI
 
 struct DogListView: View {
+    @Environment(DummyData.self) var dummyData
     var body: some View {
-        NavigationSplitView {
+        NavigationStack {
             List {
-                Text("Staffy")
-                Text("Weimeraner")
-                Text("Pug")
+                ForEach(dummyData.breedInfoExample) { breed in
+                    NavigationLink {
+                        DogBreedProfile(breedInfo: breed)
+                    }
+                label: {
+                    BreedListView(dogProfile: breed)
+                }
+                }
             }
-            .navigationTitle( "Dog Breeds:" )
-        } detail: {
-            Text("Select a dog breed")
+            .navigationTitle("Dog Breeds:")
         }
     }
 }
+
+
 #Preview {
     DogListView()
+        .environment(DummyData())
 }

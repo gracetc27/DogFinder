@@ -8,11 +8,24 @@
 import SwiftUI
 
 struct DogBreedProfile: View {
+    var breedInfo: BreedInfo
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+
+        ScrollView(.horizontal) {
+            HStack {
+                ForEach(DummyData.loadImages(id: breedInfo.id)) { image in
+                    DogImageView(dogImage: image)
+                }
+            }
+
+
+        }
+        .navigationTitle("\(breedInfo.name):")
+    }
+}
+#Preview {
+    NavigationStack {
+        DogBreedProfile(breedInfo: DummyData().breedInfoExample[0])
     }
 }
 
-#Preview {
-    DogBreedProfile()
-}
