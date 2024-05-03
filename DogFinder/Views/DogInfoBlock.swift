@@ -12,7 +12,7 @@ struct DogInfoBlock: View {
     let breedInfo: BreedInfo
     var body: some View {
         VStack(alignment: .leading) {
-            InfoStyle(headline: "LifeSpan:", info: "\(breedInfo.lifeSpan)")
+            InfoStyle(headline: "Life Span:", info: "\(breedInfo.lifeSpan)")
             InfoStyle(headline: "Height:", info: "\(breedInfo.height.forLocale(locale))")
             InfoStyle(headline: "Weight:", info: "\(breedInfo.weight.forLocale(locale))")
             InfoStyle(headline: "Temperament:", info: "\(breedInfo.temperament)")
@@ -40,6 +40,7 @@ struct InfoStyle: View {
         VStack(alignment: .leading) {
             Text(headline)
                 .font(.headline)
+                .accessibilityAddTraits(.isHeader)
             Text(info)
                 .font(.callout)
         }
