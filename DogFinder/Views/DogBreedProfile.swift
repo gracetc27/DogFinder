@@ -8,24 +8,30 @@
 import SwiftUI
 
 struct DogBreedProfile: View {
+    @Environment(DummyData.self) var dummyData
     var breedInfo: BreedInfo
     var body: some View {
-
-        ScrollView(.horizontal) {
-            HStack {
-                ForEach(DummyData.loadImages(id: breedInfo.id)) { image in
-                    DogImageView(dogImage: image)
+        ScrollView {
+            ScrollView(.horizontal) {
+                HStack {
+                    ForEach(DummyData.loadImages(id: breedInfo.id)) { image in
+                        DogImageView(dogImage: image)
+                    }
                 }
             }
+            .navigationTitle("\(breedInfo.name):")
 
-
+            VStack {
+                    DogInfoBlock(breedInfo: breedInfo)
+                }
+            }
         }
-        .navigationTitle("\(breedInfo.name):")
     }
-}
+
 #Preview {
     NavigationStack {
-        DogBreedProfile(breedInfo: DummyData().breedInfoExample[0])
+        DogBreedProfile(breedInfo: DummyData().breedInfoExample[6])
     }
+    .environment(DummyData())
 }
 

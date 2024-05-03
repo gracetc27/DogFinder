@@ -23,3 +23,14 @@ struct BreedInfo: Codable, Identifiable {
 struct System: Codable {
     let imperial, metric: String
 }
+
+extension System {
+    func forLocale(_ locale: Locale) -> String {
+        switch locale.measurementSystem {
+        case .metric:
+            metric
+        default:
+            imperial
+        }
+    }
+}
