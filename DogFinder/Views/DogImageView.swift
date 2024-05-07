@@ -12,19 +12,23 @@ struct DogImageView: View {
 
     var body: some View {
         AsyncImage(url: dogImage.url) { image in
-            image
-                .resizable()
-                .scaledToFill()
-                .frame(maxWidth: .infinity)
-                .frame(height: 350)
-                .clipped()
+            Color.clear
+                .overlay {
+                    image
+                        .resizable()
+                        .aspectRatio(contentMode: .fill)
+                }
         } placeholder: {
-            EmptyView()
+            ProgressView()
         }
+        .frame(maxWidth: .infinity)
+        .frame(height: 400)
+        .clipped()
+
     }
 }
 
 #Preview {
     let dummyImageData = DummyData()
-    return DogImageView(dogImage: dummyImageData.dogExample[0])
+    return DogImageView(dogImage: dummyImageData.dogExample[6])
 }

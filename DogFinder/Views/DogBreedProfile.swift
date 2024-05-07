@@ -41,7 +41,7 @@ struct DogBreedProfile: View {
 
 #Preview {
     NavigationStack {
-        DogBreedProfile(breedInfo: DummyData().breedInfoExample[4])
+        DogBreedProfile(breedInfo: DummyData().breedInfoExample[6])
     }
     .environment(DummyData())
 }
