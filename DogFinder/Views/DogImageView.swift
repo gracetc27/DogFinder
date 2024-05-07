@@ -25,6 +25,6 @@ struct DogImageView: View {
 }
 
 #Preview {
-    let dummyImageData = DummyData()
-    return DogImageView(dogImage: dummyImageData.dogExample[6])
+    let mockImageData = MockDogService.self
+    return DogImageView(dogImage: mockImageData.dogExample[6])
 }

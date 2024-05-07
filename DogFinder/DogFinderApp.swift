@@ -9,11 +9,10 @@ import SwiftUI
 
 @main
 struct DogFinderApp: App {
-    @State private var dummyData = DummyData()
     var body: some Scene {
         WindowGroup {
             DogListView()
-                .environment(dummyData)
+                .environment(\.dogService, MockDogService())
         }
     }
 }

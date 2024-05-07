@@ -49,13 +49,13 @@ struct InfoStyle: View {
 
 
 #Preview {
-    let dummyInfoData = DummyData()
-    return DogInfoBlock(breedInfo: dummyInfoData.breedInfoExample[6])
+    let mockDogData = MockDogService.self
+    return DogInfoBlock(breedInfo: mockDogData.breedInfoExample[6])
         .environment(\.locale, Locale(identifier: "en-GB"))
 }
 
 #Preview {
-    let dummyInfoData = DummyData()
-    return DogInfoBlock(breedInfo: dummyInfoData.breedInfoExample[6])
+    let mockDogData = MockDogService.self
+    return DogInfoBlock(breedInfo: mockDogData.breedInfoExample[6])
         .environment(\.locale, Locale(identifier: "en-VI"))
 }

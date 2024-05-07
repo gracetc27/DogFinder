@@ -8,14 +8,15 @@
 import SwiftUI
 
 struct DogBreedProfile: View {
-    @Environment(DummyData.self) var dummyData
+    @Environment(\.dogService) var dogService
+    @State var dogImages: [DogImage] = []
     var breedInfo: BreedInfo
     var body: some View {
         ScrollView {
             VStack(spacing: 5) {
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 0) {
-                        ForEach(DummyData.loadImages(id: breedInfo.id)) { image in
+                        ForEach(dogImages) { image in
                             DogImageView(dogImage: image)
                         }
                         .containerRelativeFrame(.horizontal)
@@ -32,6 +33,9 @@ struct DogBreedProfile: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .border(Color.black, width: 5)
             }
+            .task {
+                dogImages = await dogService.loadImages(id: breedInfo.id)
+            }
             .padding(.horizontal, 5)
         }
     }
@@ -40,8 +44,8 @@ struct DogBreedProfile: View {
 
 #Preview {
     NavigationStack {
-        DogBreedProfile(breedInfo: DummyData().breedInfoExample[6])
+        DogBreedProfile(breedInfo: MockDogService.breedInfoExample[6])
     }
-    .environment(DummyData())
+    .environment(\.dogService, MockDogService())
 }
 

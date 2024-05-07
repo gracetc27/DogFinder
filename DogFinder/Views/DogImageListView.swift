@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct DogImageListView: View {
-    @Environment(DummyData.self) var dummyData
+    @Environment(\.dogService) var dogService
+    @State var dogImages: [DogImage] = []
+    let breedId: Int
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(dummyData.dogExample) { dogImage in
+                ForEach(dogImages) { dogImage in
                     DogImageView(dogImage: dogImage)
                         .frame(height: 350)
                         .frame(width: .infinity)
@@ -24,10 +26,13 @@ struct DogImageListView: View {
             }
             .padding(.horizontal)
         }
+        .task {
+            dogImages = await dogService.loadImages(id: breedId)
+        }
     }
 }
 
 #Preview {
-    DogImageListView()
-        .environment(DummyData())
+    DogImageListView(breedId: 2)
+        .environment(\.dogService, MockDogService())
 }

@@ -21,6 +21,8 @@
 		A34081252BDC0BBD00CF7897 /* BreedImages-9.json in Resources */ = {isa = PBXBuildFile; fileRef = A34081242BDC0BBD00CF7897 /* BreedImages-9.json */; };
 		A34081272BDC0BD100CF7897 /* BreedImages-10.json in Resources */ = {isa = PBXBuildFile; fileRef = A34081262BDC0BD000CF7897 /* BreedImages-10.json */; };
 		A346555C2BEA4AC300B19013 /* PawSeparator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A346555B2BEA4AC300B19013 /* PawSeparator.swift */; };
+		A346555F2BEA4F8D00B19013 /* DogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A346555E2BEA4F8D00B19013 /* DogService.swift */; };
+		A34655612BEA50C700B19013 /* MockDogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34655602BEA50C700B19013 /* MockDogService.swift */; };
 		A34762742BD9560B00066A3B /* DogBreedProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34762732BD9560B00066A3B /* DogBreedProfile.swift */; };
 		A35674012BE4F8D1009424A7 /* DogInfoBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35674002BE4F8D1009424A7 /* DogInfoBlock.swift */; };
 		A37B32172BD9469400808F44 /* DogFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B32162BD9469400808F44 /* DogFinderApp.swift */; };
@@ -31,7 +33,6 @@
 		A37B32322BD9469600808F44 /* DogFinderUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B32312BD9469600808F44 /* DogFinderUITests.swift */; };
 		A37B32342BD9469600808F44 /* DogFinderUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B32332BD9469600808F44 /* DogFinderUITestsLaunchTests.swift */; };
 		A3A1DC242BDAA16C00260647 /* DogImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A1DC232BDAA16C00260647 /* DogImage.swift */; };
-		A3A1DC262BDAA25200260647 /* DummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A1DC252BDAA25200260647 /* DummyData.swift */; };
 		A3A1DC282BDAB36800260647 /* DogImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A1DC272BDAB36800260647 /* DogImageListView.swift */; };
 		A3A1DC2A2BDAB3EC00260647 /* DogImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A1DC292BDAB3EC00260647 /* DogImageView.swift */; };
 /* End PBXBuildFile section */
@@ -68,6 +69,8 @@
 		A34081242BDC0BBD00CF7897 /* BreedImages-9.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BreedImages-9.json"; sourceTree = "<group>"; };
 		A34081262BDC0BD000CF7897 /* BreedImages-10.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "BreedImages-10.json"; sourceTree = "<group>"; };
 		A346555B2BEA4AC300B19013 /* PawSeparator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PawSeparator.swift; sourceTree = "<group>"; };
+		A346555E2BEA4F8D00B19013 /* DogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogService.swift; sourceTree = "<group>"; };
+		A34655602BEA50C700B19013 /* MockDogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDogService.swift; sourceTree = "<group>"; };
 		A34762732BD9560B00066A3B /* DogBreedProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedProfile.swift; sourceTree = "<group>"; };
 		A35674002BE4F8D1009424A7 /* DogInfoBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogInfoBlock.swift; sourceTree = "<group>"; };
 		A37B32132BD9469400808F44 /* DogFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -81,7 +84,6 @@
 		A37B32312BD9469600808F44 /* DogFinderUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogFinderUITests.swift; sourceTree = "<group>"; };
 		A37B32332BD9469600808F44 /* DogFinderUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogFinderUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		A3A1DC232BDAA16C00260647 /* DogImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImage.swift; sourceTree = "<group>"; };
-		A3A1DC252BDAA25200260647 /* DummyData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyData.swift; sourceTree = "<group>"; };
 		A3A1DC272BDAB36800260647 /* DogImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImageListView.swift; sourceTree = "<group>"; };
 		A3A1DC292BDAB3EC00260647 /* DogImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +113,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A346555D2BEA4F4A00B19013 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A346555E2BEA4F8D00B19013 /* DogService.swift */,
+				A34655602BEA50C700B19013 /* MockDogService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		A34762722BD955CF00066A3B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -151,6 +162,7 @@
 				A37B32162BD9469400808F44 /* DogFinderApp.swift */,
 				A37B321A2BD9469600808F44 /* Assets.xcassets */,
 				A3A1DC202BDAA03900260647 /* Data */,
+				A346555D2BEA4F4A00B19013 /* Services */,
 				A3A1DC1F2BDA9AAC00260647 /* Models */,
 				A34762722BD955CF00066A3B /* Views */,
 				A37B321C2BD9469600808F44 /* Preview Content */,
@@ -187,7 +199,6 @@
 			isa = PBXGroup;
 			children = (
 				A3A1DC232BDAA16C00260647 /* DogImage.swift */,
-				A3A1DC252BDAA25200260647 /* DummyData.swift */,
 				A34081102BDBDD8400CF7897 /* BreedInfo.swift */,
 			);
 			path = Models;
@@ -353,10 +364,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A34081112BDBDD8400CF7897 /* BreedInfo.swift in Sources */,
+				A34655612BEA50C700B19013 /* MockDogService.swift in Sources */,
 				A3A1DC242BDAA16C00260647 /* DogImage.swift in Sources */,
+				A346555F2BEA4F8D00B19013 /* DogService.swift in Sources */,
 				A3A1DC282BDAB36800260647 /* DogImageListView.swift in Sources */,
 				A346555C2BEA4AC300B19013 /* PawSeparator.swift in Sources */,
-				A3A1DC262BDAA25200260647 /* DummyData.swift in Sources */,
 				A37B32192BD9469400808F44 /* DogListView.swift in Sources */,
 				A34081132BDBF9A400CF7897 /* BreedListView.swift in Sources */,
 				A37B32172BD9469400808F44 /* DogFinderApp.swift in Sources */,

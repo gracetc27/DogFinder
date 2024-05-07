@@ -18,6 +18,6 @@ struct BreedListView: View {
     }
 }
 #Preview {
-    let dummyData = DummyData()
-    return BreedListView(dogProfile: dummyData.breedInfoExample[0])
+    let breedName = MockDogService.self
+    return BreedListView(dogProfile: breedName.breedInfoExample[0])
 }

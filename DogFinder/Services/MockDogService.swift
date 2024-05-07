@@ -1,23 +1,27 @@
 //
-//  DummyImageData.swift
+//  MockDogService.swift
 //  DogFinder
 //
-//  Created by Grace couch on 25/04/2024.
+//  Created by Grace couch on 07/05/2024.
 //
 
 import Foundation
 
-@Observable
-class DummyData {
-    var dogExample: [DogImage] = loadJson(fileName: "BreedImages-5.json", asType: [DogImage].self)
-    var breedInfoExample: [BreedInfo] = loadJson(fileName: "breeds.json", asType: [BreedInfo].self)
-
-   static func loadImages(id: Int) -> [DogImage] {
+class MockDogService: DogService {
+    func loadImages(id: Int) async -> [DogImage] {
         loadJson(fileName: "BreedImages-\(id).json", asType: [DogImage].self)
+    }
+    
+    func fetchBreeds() async -> [BreedInfo] {
+        loadJson(fileName: "breeds.json", asType: [BreedInfo].self)
     }
 }
 
 
+extension MockDogService {
+    static var breedInfoExample: [BreedInfo] = loadJson(fileName: "breeds.json", asType: [BreedInfo].self)
+    static var dogExample: [DogImage] = loadJson(fileName: "BreedImages-5.json", asType: [DogImage].self)
+}
 
 func loadJson<Model: Decodable>(fileName: String, asType: Model.Type) -> Model {
     guard let url = Bundle.main.url(forResource: fileName, withExtension: nil)
@@ -34,4 +38,3 @@ func loadJson<Model: Decodable>(fileName: String, asType: Model.Type) -> Model {
         fatalError("An error has occurred")
     }
 }
-

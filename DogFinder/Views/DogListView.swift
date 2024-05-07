@@ -8,20 +8,23 @@
 import SwiftUI
 
 struct DogListView: View {
-    @Environment(DummyData.self) var dummyData
+    @Environment(\.dogService) var dogService
+    @State var breeds: [BreedInfo] = []
     var body: some View {
         NavigationStack {
             List {
-                ForEach(dummyData.breedInfoExample) { breed in
+                ForEach(breeds) { breed in
                     NavigationLink {
                         DogBreedProfile(breedInfo: breed)
+                    } label: {
+                        BreedListView(dogProfile: breed)
                     }
-                label: {
-                    BreedListView(dogProfile: breed)
-                }
                 }
             }
             .navigationTitle("Dog Breeds:")
+        }
+        .task {
+            breeds = await dogService.fetchBreeds()
         }
     }
 }
@@ -29,5 +32,5 @@ struct DogListView: View {
 
 #Preview {
     DogListView()
-        .environment(DummyData())
+        .environment(\.dogService, MockDogService())
 }
