@@ -12,7 +12,7 @@ struct DogFinderApp: App {
     var body: some Scene {
         WindowGroup {
             DogListView()
-                .environment(\.dogService, MockDogService())
+                .environment(\.dogService, DogApiService())
         }
     }
 }
