@@ -14,21 +14,20 @@ struct DogBreedProfile: View {
         ScrollView {
             VStack(spacing: 5) {
                 ScrollView(.horizontal) {
-                    HStack(spacing: 0) {
+                    LazyHStack(spacing: 0) {
                         ForEach(DummyData.loadImages(id: breedInfo.id)) { image in
                             DogImageView(dogImage: image)
                         }
+                        .containerRelativeFrame(.horizontal)
+                        .frame(height: 350)
+                        .clipped()
                     }
                 }
                 .border(Color.black, width: 5)
                 .navigationTitle("\(breedInfo.name):")
 
-                HStack(alignment: .center) {
-                    Image(systemName: "pawprint.fill")
-                    Image(systemName: "pawprint.fill")
-                        .font(.title2)
-                    Image(systemName: "pawprint.fill")
-                }
+                PawSeparator()
+
                 DogInfoBlock(breedInfo: breedInfo)
                     .frame(maxWidth: .infinity, alignment: .leading)
                     .border(Color.black, width: 5)

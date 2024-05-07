@@ -11,14 +11,19 @@ struct DogImageListView: View {
     @Environment(DummyData.self) var dummyData
     var body: some View {
         ScrollView {
-            VStack {
+            LazyVStack {
                 ForEach(dummyData.dogExample) { dogImage in
                     DogImageView(dogImage: dogImage)
+                        .frame(height: 350)
+                        .frame(width: .infinity)
+                        .clipped()
+                        .border(Color.black, width: 5)
+
+                   PawSeparator()
                 }
             }
+            .padding(.horizontal)
         }
-        .padding(.horizontal)
-        .background(Gradient(colors: [.teal, .white, .teal]))
     }
 }
 

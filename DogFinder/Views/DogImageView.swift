@@ -21,10 +21,6 @@ struct DogImageView: View {
         } placeholder: {
             ProgressView()
         }
-        .frame(maxWidth: .infinity)
-        .frame(height: 400)
-        .clipped()
-
     }
 }
 
