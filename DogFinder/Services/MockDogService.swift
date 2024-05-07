@@ -30,10 +30,7 @@ func loadJson<Model: Decodable>(fileName: String, asType: Model.Type) -> Model {
     }
     do {
         let data = try Data(contentsOf: url)
-        let decoder = JSONDecoder()
-        decoder.keyDecodingStrategy = .convertFromSnakeCase
-        let jsonData = try decoder.decode(Model.self, from: data)
-        return jsonData
+        return try data.decode(as: Model.self)
     } catch {
         fatalError("An error has occurred")
     }

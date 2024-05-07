@@ -25,6 +25,7 @@
 		A34655612BEA50C700B19013 /* MockDogService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34655602BEA50C700B19013 /* MockDogService.swift */; };
 		A34655632BEA600E00B19013 /* DogApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34655622BEA600E00B19013 /* DogApiService.swift */; };
 		A34655652BEA6FD000B19013 /* DogApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = A34655642BEA6FD000B19013 /* DogApiKeys.plist */; };
+		A34655682BEA8FFA00B19013 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34655672BEA8FFA00B19013 /* Data+.swift */; };
 		A34762742BD9560B00066A3B /* DogBreedProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34762732BD9560B00066A3B /* DogBreedProfile.swift */; };
 		A35674012BE4F8D1009424A7 /* DogInfoBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35674002BE4F8D1009424A7 /* DogInfoBlock.swift */; };
 		A37B32172BD9469400808F44 /* DogFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B32162BD9469400808F44 /* DogFinderApp.swift */; };
@@ -75,6 +76,7 @@
 		A34655602BEA50C700B19013 /* MockDogService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockDogService.swift; sourceTree = "<group>"; };
 		A34655622BEA600E00B19013 /* DogApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogApiService.swift; sourceTree = "<group>"; };
 		A34655642BEA6FD000B19013 /* DogApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = DogApiKeys.plist; sourceTree = "<group>"; };
+		A34655672BEA8FFA00B19013 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		A34762732BD9560B00066A3B /* DogBreedProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedProfile.swift; sourceTree = "<group>"; };
 		A35674002BE4F8D1009424A7 /* DogInfoBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogInfoBlock.swift; sourceTree = "<group>"; };
 		A37B32132BD9469400808F44 /* DogFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -127,6 +129,14 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		A34655662BEA8FDC00B19013 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A34655672BEA8FFA00B19013 /* Data+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		A34762722BD955CF00066A3B /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +177,7 @@
 				A37B32162BD9469400808F44 /* DogFinderApp.swift */,
 				A34655642BEA6FD000B19013 /* DogApiKeys.plist */,
 				A37B321A2BD9469600808F44 /* Assets.xcassets */,
+				A34655662BEA8FDC00B19013 /* Extensions */,
 				A3A1DC202BDAA03900260647 /* Data */,
 				A346555D2BEA4F4A00B19013 /* Services */,
 				A3A1DC1F2BDA9AAC00260647 /* Models */,
@@ -379,6 +390,7 @@
 				A37B32192BD9469400808F44 /* DogListView.swift in Sources */,
 				A34081132BDBF9A400CF7897 /* BreedListView.swift in Sources */,
 				A37B32172BD9469400808F44 /* DogFinderApp.swift in Sources */,
+				A34655682BEA8FFA00B19013 /* Data+.swift in Sources */,
 				A34762742BD9560B00066A3B /* DogBreedProfile.swift in Sources */,
 				A35674012BE4F8D1009424A7 /* DogInfoBlock.swift in Sources */,
 				A3A1DC2A2BDAB3EC00260647 /* DogImageView.swift in Sources */,

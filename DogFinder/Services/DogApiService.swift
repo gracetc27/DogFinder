@@ -8,62 +8,62 @@
 import Foundation
 
 class DogApiService: DogService {
+
+    enum APIError: Error {
+        case invalidURL
+    }
+
+    private let apiKey = getApiKey()
+
     func fetchBreeds() async -> [BreedInfo] {
-        var components = URLComponents()
-        components.host = "api.thedogapi.com"
-        components.scheme = "https"
-        components.path = "/v1/breeds"
-        components.queryItems = [
-            URLQueryItem(name: "limit", value: "10"),
-            URLQueryItem(name: "page", value: "0")
-        ]
-
-        guard let url = components.url else { return [] }
-
-        var request = URLRequest(url: url)
-        request.addValue(apiKey(), forHTTPHeaderField: "x-api-key")
         do {
-            let (data, _) = try await URLSession.shared.data(for: request)
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let jsonData = try decoder.decode([BreedInfo].self, from: data)
-            return jsonData
+            return try await loadData(
+                path:"/v1/breeds",
+                queryItems: [ 
+                    URLQueryItem(name: "limit", value: "10"),
+                    URLQueryItem(name: "page", value: "0")
+                ],
+                as: [BreedInfo].self)
         } catch {
             return []
         }
     }
+
     
     func loadImages(id: Int) async -> [DogImage] {
+        do {
+            return try await loadData(
+                path: "/v1/images/search",
+                queryItems: [
+                    URLQueryItem(name: "include_breeds", value: "false"),
+                    URLQueryItem(name: "page", value: "0"),
+                    URLQueryItem(name: "limit", value: "10"),
+                    URLQueryItem(name: "breed_ids", value: id.formatted())
+                ],
+                as: [DogImage].self
+            )
+        } catch {
+            return []
+        }
+    }
+
+    private func loadData<DataModel: Decodable>(path: String, queryItems: [URLQueryItem], as type: DataModel.Type) async throws -> DataModel {
         var components = URLComponents()
         components.host = "api.thedogapi.com"
         components.scheme = "https"
-        components.path = "/v1/images/search"
-        components.queryItems = [
-            URLQueryItem(name: "include_breeds", value: "false"),
-            URLQueryItem(name: "page", value: "0"),
-            URLQueryItem(name: "limit", value: "10"),
-            URLQueryItem(name: "breed_ids", value: id.formatted())
-        ]
+        components.path = path
+        components.queryItems = queryItems
 
-        guard let url = components.url else { return [] }
+        guard let url = components.url else { throw APIError.invalidURL }
 
         var request = URLRequest(url: url)
-        request.addValue(apiKey(), forHTTPHeaderField: "x-api-key")
-        do {
-            let (data, _) = try await URLSession.shared.data(for: request)
-
-            let decoder = JSONDecoder()
-            decoder.keyDecodingStrategy = .convertFromSnakeCase
-            let jsonData = try decoder.decode([DogImage].self, from: data)
-            return jsonData
-        } catch {
-            print(error)
-            return []
-        }
+        request.addValue(apiKey, forHTTPHeaderField: "x-api-key")
+        let (data, _) = try await URLSession.shared.data(for: request)
+        return try data.decode(as: DataModel.self)
     }
 }
 
-private func apiKey() -> String {
+private func getApiKey() -> String {
     var keys: NSDictionary?
 
     if let path = Bundle.main.path(forResource: "DogApiKeys", ofType: "plist") {
