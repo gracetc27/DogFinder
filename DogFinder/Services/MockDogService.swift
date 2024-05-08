@@ -8,8 +8,8 @@
 import Foundation
 
 class MockDogService: DogService {
-    func loadImages(id: Int) async -> [DogImage] {
-        loadJson(fileName: "BreedImages-\(id).json", asType: [DogImage].self)
+    func loadImages(id: Int?) async -> [DogImage] {
+        loadJson(fileName: "BreedImages-\(id ?? 3).json", asType: [DogImage].self)
     }
     
     func fetchBreeds() async -> [BreedInfo] {

@@ -10,7 +10,7 @@ import SwiftUI
 
 protocol DogService {
     func fetchBreeds() async -> [BreedInfo]
-    func loadImages(id: Int) async -> [DogImage]
+    func loadImages(id: Int?) async -> [DogImage]
 }
 
 enum DogServiceEnvironmentKey: EnvironmentKey {

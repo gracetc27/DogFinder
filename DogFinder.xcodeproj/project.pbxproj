@@ -38,6 +38,8 @@
 		A3A1DC242BDAA16C00260647 /* DogImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A1DC232BDAA16C00260647 /* DogImage.swift */; };
 		A3A1DC282BDAB36800260647 /* DogImageListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A1DC272BDAB36800260647 /* DogImageListView.swift */; };
 		A3A1DC2A2BDAB3EC00260647 /* DogImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A1DC292BDAB3EC00260647 /* DogImageView.swift */; };
+		A3ADB0FB2BEB80BE006FD9F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADB0FA2BEB80BE006FD9F6 /* ContentView.swift */; };
+		A3ADB0FF2BEBA7DB006FD9F6 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADB0FE2BEBA7DB006FD9F6 /* HomeScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +94,8 @@
 		A3A1DC232BDAA16C00260647 /* DogImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImage.swift; sourceTree = "<group>"; };
 		A3A1DC272BDAB36800260647 /* DogImageListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImageListView.swift; sourceTree = "<group>"; };
 		A3A1DC292BDAB3EC00260647 /* DogImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImageView.swift; sourceTree = "<group>"; };
+		A3ADB0FA2BEB80BE006FD9F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A3ADB0FE2BEBA7DB006FD9F6 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +144,8 @@
 		A34762722BD955CF00066A3B /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				A3ADB0FA2BEB80BE006FD9F6 /* ContentView.swift */,
+				A3ADB0FE2BEBA7DB006FD9F6 /* HomeScreen.swift */,
 				A37B32182BD9469400808F44 /* DogListView.swift */,
 				A3A1DC272BDAB36800260647 /* DogImageListView.swift */,
 				A34762732BD9560B00066A3B /* DogBreedProfile.swift */,
@@ -385,6 +391,7 @@
 				A34655612BEA50C700B19013 /* MockDogService.swift in Sources */,
 				A3A1DC242BDAA16C00260647 /* DogImage.swift in Sources */,
 				A346555F2BEA4F8D00B19013 /* DogService.swift in Sources */,
+				A3ADB0FF2BEBA7DB006FD9F6 /* HomeScreen.swift in Sources */,
 				A3A1DC282BDAB36800260647 /* DogImageListView.swift in Sources */,
 				A346555C2BEA4AC300B19013 /* PawSeparator.swift in Sources */,
 				A37B32192BD9469400808F44 /* DogListView.swift in Sources */,
@@ -392,6 +399,7 @@
 				A37B32172BD9469400808F44 /* DogFinderApp.swift in Sources */,
 				A34655682BEA8FFA00B19013 /* Data+.swift in Sources */,
 				A34762742BD9560B00066A3B /* DogBreedProfile.swift in Sources */,
+				A3ADB0FB2BEB80BE006FD9F6 /* ContentView.swift in Sources */,
 				A35674012BE4F8D1009424A7 /* DogInfoBlock.swift in Sources */,
 				A3A1DC2A2BDAB3EC00260647 /* DogImageView.swift in Sources */,
 				A34655632BEA600E00B19013 /* DogApiService.swift in Sources */,

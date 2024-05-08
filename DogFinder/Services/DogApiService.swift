@@ -30,16 +30,21 @@ class DogApiService: DogService {
     }
 
     
-    func loadImages(id: Int) async -> [DogImage] {
+    func loadImages(id: Int? = nil) async -> [DogImage] {
+        var queryItems = [
+            URLQueryItem(name: "include_breeds", value: "false"),
+            URLQueryItem(name: "page", value: "0"),
+            URLQueryItem(name: "limit", value: "10")
+        ]
+        if let id {
+            let breedIdQuery = URLQueryItem(name: "breed_ids", value: id.formatted())
+            queryItems.append(breedIdQuery)
+        }
+
         do {
             return try await loadData(
                 path: "/v1/images/search",
-                queryItems: [
-                    URLQueryItem(name: "include_breeds", value: "false"),
-                    URLQueryItem(name: "page", value: "0"),
-                    URLQueryItem(name: "limit", value: "10"),
-                    URLQueryItem(name: "breed_ids", value: id.formatted())
-                ],
+                queryItems: queryItems,
                 as: [DogImage].self
             )
         } catch {
