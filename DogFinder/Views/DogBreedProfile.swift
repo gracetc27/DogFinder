@@ -26,6 +26,7 @@ struct DogBreedProfile: View {
                 }
                 .border(Color.black, width: 5)
                 .navigationTitle("\(breedInfo.name):")
+                
 
                 PawSeparator()
 

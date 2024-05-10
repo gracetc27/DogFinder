@@ -10,8 +10,8 @@ import SwiftUI
 struct DogListView: View {
     @Environment(\.dogService) var dogService
     @State var breeds: [BreedInfo] = []
+   
     var body: some View {
-        NavigationStack {
             List {
                 ForEach(breeds) { breed in
                     NavigationLink {
@@ -21,8 +21,6 @@ struct DogListView: View {
                     }
                 }
             }
-            .navigationTitle("Dog Breeds:")
-        }
         .task {
             breeds = await dogService.fetchBreeds()
         }

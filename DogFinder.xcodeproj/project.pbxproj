@@ -40,6 +40,7 @@
 		A3A1DC2A2BDAB3EC00260647 /* DogImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A1DC292BDAB3EC00260647 /* DogImageView.swift */; };
 		A3ADB0FB2BEB80BE006FD9F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADB0FA2BEB80BE006FD9F6 /* ContentView.swift */; };
 		A3ADB0FF2BEBA7DB006FD9F6 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADB0FE2BEBA7DB006FD9F6 /* HomeScreen.swift */; };
+		A3D06B792BEE298100BE8214 /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D06B782BEE298100BE8214 /* FavouriteButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +97,7 @@
 		A3A1DC292BDAB3EC00260647 /* DogImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImageView.swift; sourceTree = "<group>"; };
 		A3ADB0FA2BEB80BE006FD9F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A3ADB0FE2BEBA7DB006FD9F6 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		A3D06B782BEE298100BE8214 /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 				A35674002BE4F8D1009424A7 /* DogInfoBlock.swift */,
 				A3A1DC292BDAB3EC00260647 /* DogImageView.swift */,
 				A34081122BDBF9A400CF7897 /* BreedListView.swift */,
+				A3D06B782BEE298100BE8214 /* FavouriteButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -392,6 +395,7 @@
 				A3A1DC242BDAA16C00260647 /* DogImage.swift in Sources */,
 				A346555F2BEA4F8D00B19013 /* DogService.swift in Sources */,
 				A3ADB0FF2BEBA7DB006FD9F6 /* HomeScreen.swift in Sources */,
+				A3D06B792BEE298100BE8214 /* FavouriteButton.swift in Sources */,
 				A3A1DC282BDAB36800260647 /* DogImageListView.swift in Sources */,
 				A346555C2BEA4AC300B19013 /* PawSeparator.swift in Sources */,
 				A37B32192BD9469400808F44 /* DogListView.swift in Sources */,

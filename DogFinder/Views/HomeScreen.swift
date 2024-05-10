@@ -8,17 +8,32 @@
 import SwiftUI
 
 struct HomeScreen: View {
+    @Environment(\.dogService) var dogService
     var body: some View {
-        ScrollView {
             VStack {
                 Label("Dog Of The Day", systemImage: "pawprint.fill")
                     .font(.headline)
-                
+                    .padding(5)
+                Rectangle().frame(minWidth: 350, minHeight: 300)
+
+                HStack {
+                    Image(systemName: "heart.fill")
+                        .foregroundStyle(.red)
+                    Text("Breed Favourites")
+                        .font(.headline)
+                }
+                .padding(5)
+            
+                DogListView()
+                    .listStyle(.inset)
+                    }
+                }
             }
-        }
-    }
-}
+        
+
+
 
 #Preview {
     HomeScreen()
+        .environment(\.dogService, MockDogService())
 }

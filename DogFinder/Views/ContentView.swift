@@ -17,23 +17,29 @@ struct ContentView: View {
     }
     var body: some View {
         TabView(selection: $selection) {
-            HomeScreen()
-                .tabItem {
-                    Label("Home", systemImage: "house")
-                }
-                .tag(Tab.home)
+            NavigationStack {
+                HomeScreen()
+            }
+            .tabItem {
+                Label("Home", systemImage: "house")
+            }
+            .tag(Tab.home)
+            NavigationStack {
+                DogListView()
+                    .navigationTitle("Dog Breeds:")
+            }
 
-            DogListView()
-                .tabItem {
-                    Label("Breed List", systemImage: "list.bullet")
-                }
-                .tag(Tab.dogList)
-
-            DogImageListView()
-                .tabItem {
-                    Label("Dog Images", systemImage: "photo")
-                }
-                .tag(Tab.imageView)
+            .tabItem {
+                Label("Breed List", systemImage: "list.bullet")
+            }
+            .tag(Tab.dogList)
+            NavigationStack {
+                DogImageListView()
+            }
+            .tabItem {
+                Label("Dog Images", systemImage: "photo")
+            }
+            .tag(Tab.imageView)
         }
     }
 }
