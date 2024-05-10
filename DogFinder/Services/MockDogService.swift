@@ -8,12 +8,26 @@
 import Foundation
 
 class MockDogService: DogService {
+
+    var favouriteBreeds: Set<Int> = []
     func loadImages(id: Int?) async -> [DogImage] {
         loadJson(fileName: "BreedImages-\(id ?? 3).json", asType: [DogImage].self)
     }
     
     func fetchBreeds() async -> [BreedInfo] {
         loadJson(fileName: "breeds.json", asType: [BreedInfo].self)
+    }
+
+    func saveFavouriteBreed(id: Int, favourited: Bool) {
+        if favourited {
+            favouriteBreeds.insert(id)
+        } else {
+            favouriteBreeds.remove(id)
+        }
+    }
+
+    func getFavourites() -> [Int] {
+        return Array(favouriteBreeds)
     }
 }
 

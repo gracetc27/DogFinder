@@ -8,6 +8,15 @@
 import Foundation
 
 class DogApiService: DogService {
+    func saveFavouriteBreed(id: Int, favourited: Bool) {
+        #warning("needs implementing")
+    }
+    
+    func getFavourites() -> [Int] {
+        #warning("needs implementing")
+        return []
+    }
+    
 
     enum APIError: Error {
         case invalidURL

@@ -11,6 +11,8 @@ struct DogBreedProfile: View {
     @Environment(\.dogService) var dogService
     @State var dogImages: [DogImage] = []
     var breedInfo: BreedInfo
+    @State private var isFavourited = false
+
     var body: some View {
         ScrollView {
             VStack(spacing: 5) {
@@ -25,8 +27,6 @@ struct DogBreedProfile: View {
                     }
                 }
                 .border(Color.black, width: 5)
-                .navigationTitle("\(breedInfo.name):")
-                
 
                 PawSeparator()
 
@@ -39,6 +39,21 @@ struct DogBreedProfile: View {
             }
             .padding(.horizontal, 5)
         }
+        .onChange(of: isFavourited) { _, newValue in
+            dogService.saveFavouriteBreed(id: breedInfo.id, favourited: newValue)
+        }
+        .onAppear {
+            let favourites = dogService.getFavourites()
+            let isFavourited = favourites.contains { savedId in
+                savedId == breedInfo.id
+            }
+            self.isFavourited = isFavourited
+        }
+        .navigationTitle("\(breedInfo.name):")
+        .toolbar(content: {
+            FavouriteButton(isSet: $isFavourited)
+                .buttonStyle(.plain)
+        })
     }
 }
 

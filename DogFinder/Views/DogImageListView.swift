@@ -16,7 +16,7 @@ struct DogImageListView: View {
                 ForEach(dogImages) { dogImage in
                     DogImageView(dogImage: dogImage)
                         .frame(height: 350)
-                        .frame(width: .infinity)
+                        .frame(maxWidth: .infinity)
                         .clipped()
                         .border(Color.black, width: 5)
 

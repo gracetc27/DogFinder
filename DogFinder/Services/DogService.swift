@@ -11,6 +11,8 @@ import SwiftUI
 protocol DogService {
     func fetchBreeds() async -> [BreedInfo]
     func loadImages(id: Int?) async -> [DogImage]
+    func saveFavouriteBreed(id: Int, favourited: Bool)
+    func getFavourites() -> [Int]
 }
 
 enum DogServiceEnvironmentKey: EnvironmentKey {
