@@ -8,10 +8,9 @@
 import SwiftUI
 
 struct DogBreedProfile: View {
-    @Environment(\.dogService) var dogService
+    @Environment(DogViewModel.self) var dogViewModel
     @State var dogImages: [DogImage] = []
-    var breedInfo: BreedInfo
-    @State private var isFavourited = false
+    @Binding var breedInfo: BreedInfo
 
     var body: some View {
         ScrollView {
@@ -35,23 +34,14 @@ struct DogBreedProfile: View {
                     .border(Color.black, width: 5)
             }
             .task {
-                dogImages = await dogService.loadImages(id: breedInfo.id)
+                dogImages = await dogViewModel.loadImages(breedInfo.id)
             }
             .padding(.horizontal, 5)
         }
-        .onChange(of: isFavourited) { _, newValue in
-            dogService.saveFavouriteBreed(id: breedInfo.id, favourited: newValue)
-        }
-        .onAppear {
-            let favourites = dogService.getFavourites()
-            let isFavourited = favourites.contains { savedId in
-                savedId == breedInfo.id
-            }
-            self.isFavourited = isFavourited
-        }
+        
         .navigationTitle("\(breedInfo.name):")
         .toolbar(content: {
-            FavouriteButton(isSet: $isFavourited)
+            FavouriteButton(isSet: $breedInfo.isFavourite)
                 .buttonStyle(.plain)
         })
     }
@@ -60,8 +50,8 @@ struct DogBreedProfile: View {
 
 #Preview {
     NavigationStack {
-        DogBreedProfile(breedInfo: MockDogService.breedInfoExample[6])
+        DogBreedProfile(breedInfo: .constant(MockDogService.breedInfoExample[6]))
     }
-    .environment(\.dogService, MockDogService())
+    .environment(DogViewModel(service: MockDogService()))
 }
 

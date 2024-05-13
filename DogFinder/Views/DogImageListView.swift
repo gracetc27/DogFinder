@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct DogImageListView: View {
-    @Environment(\.dogService) var dogService
+    @Environment(DogViewModel.self) var dogViewModel
     @State var dogImages: [DogImage] = []
     var body: some View {
         ScrollView {
@@ -26,12 +26,12 @@ struct DogImageListView: View {
             .padding(.horizontal)
         }
         .task {
-            dogImages = await dogService.loadImages(id: nil)
+          dogImages = await dogViewModel.loadImages(nil)
         }
     }
 }
 
 #Preview {
     DogImageListView()
-        .environment(\.dogService, MockDogService())
+        .environment(DogViewModel(service: MockDogService()))
 }

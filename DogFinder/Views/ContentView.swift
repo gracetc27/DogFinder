@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    @Environment(\.dogService) var dogService
     @State private var selection: Tab = .home
     enum Tab {
         case home
@@ -46,6 +45,6 @@ struct ContentView: View {
 
 #Preview {
     ContentView()
-        .environment(\.dogService, MockDogService())
+        .environment(DogViewModel(service: MockDogService()))
 }
 

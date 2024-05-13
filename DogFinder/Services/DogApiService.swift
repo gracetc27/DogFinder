@@ -26,13 +26,35 @@ class DogApiService: DogService {
 
     func fetchBreeds() async -> [BreedInfo] {
         do {
-            return try await loadData(
+            let response = try await loadData(
                 path:"/v1/breeds",
                 queryItems: [ 
                     URLQueryItem(name: "limit", value: "10"),
                     URLQueryItem(name: "page", value: "0")
                 ],
-                as: [BreedInfo].self)
+                as: [DogApiBreedInfo].self)
+
+            return response.map { dogApiBreedInfo in
+                BreedInfo(
+                    id: dogApiBreedInfo.id,
+                    name: dogApiBreedInfo.name,
+                    lifeSpan: dogApiBreedInfo.lifeSpan,
+                    temperament: dogApiBreedInfo.temperament,
+                    referenceImageId: dogApiBreedInfo.referenceImageId,
+                    image: dogApiBreedInfo.image,
+                    height: dogApiBreedInfo.height,
+                    weight: dogApiBreedInfo.weight,
+                    countryCode: dogApiBreedInfo.countryCode,
+                    description: dogApiBreedInfo.description,
+                    history: dogApiBreedInfo.history,
+                    bredFor: dogApiBreedInfo.bredFor,
+                    breedGroup: dogApiBreedInfo.breedGroup,
+                    isFavourite: true,
+                    onIsFavouritedChanged: { [weak self] isFavourited in
+                        self?.saveFavouriteBreed(id: dogApiBreedInfo.id, favourited: isFavourited)
+                    }
+                )
+            }
         } catch {
             return []
         }

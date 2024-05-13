@@ -1,14 +1,14 @@
 //
-//  BreedInfo.swift
+//  DogApiBreedInfo.swift
 //  DogFinder
 //
-//  Created by Grace couch on 13/05/2024.
+//  Created by Grace couch on 26/04/2024.
 //
 
 import Foundation
 
 
-struct BreedInfo: Identifiable {
+struct DogApiBreedInfo: Codable, Identifiable {
     let id: Int
     let name: String
     let lifeSpan: String
@@ -18,11 +18,4 @@ struct BreedInfo: Identifiable {
     let height, weight: MeasurementSystem
     let countryCode, description, history: String?
     let bredFor, breedGroup: String?
-    var isFavourite: Bool {
-        didSet { onIsFavouritedChanged(isFavourite) }
-    }
-
-    var onIsFavouritedChanged: (Bool) -> Void
 }
-
-

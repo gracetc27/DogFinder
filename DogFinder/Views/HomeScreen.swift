@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct HomeScreen: View {
-    @Environment(\.dogService) var dogService
+    @Environment(DogViewModel.self) var dogViewModel
     var body: some View {
             VStack {
                 Label("Dog Of The Day", systemImage: "pawprint.fill")
@@ -35,5 +35,5 @@ struct HomeScreen: View {
 
 #Preview {
     HomeScreen()
-        .environment(\.dogService, MockDogService())
+        .environment(DogViewModel(service: MockDogService()))
 }

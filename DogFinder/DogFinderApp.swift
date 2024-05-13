@@ -12,7 +12,7 @@ struct DogFinderApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(\.dogService, DogApiService())
+                .environment(DogViewModel(service: DogApiService()))
         }
     }
 }
