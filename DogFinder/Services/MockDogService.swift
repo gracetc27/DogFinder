@@ -31,7 +31,7 @@ class MockDogService: DogService {
                 history: dogApiBreedInfo.history,
                 bredFor: dogApiBreedInfo.bredFor,
                 breedGroup: dogApiBreedInfo.breedGroup,
-                isFavourite: true,
+                isFavourite: favouriteBreeds.contains(dogApiBreedInfo.id),
                 onIsFavouritedChanged: { [weak self] isFavourited in
                     if isFavourited {
                         self?.favouriteBreeds.insert(dogApiBreedInfo.id)
@@ -41,6 +41,14 @@ class MockDogService: DogService {
                 }
             )
         }
+    }
+    func saveFavouriteBreeds() async throws {
+        // Not implemented for mockService
+    }
+
+    func loadFavouriteBreeds() async throws {
+        // Not implemented for mockService
+
     }
 }
 

@@ -11,5 +11,7 @@ import SwiftUI
 protocol DogService {
     func fetchBreeds() async -> [BreedInfo]
     func loadImages(id: Int?) async -> [DogImage]
+    func saveFavouriteBreeds() async throws
+    func loadFavouriteBreeds() async throws
 }
 

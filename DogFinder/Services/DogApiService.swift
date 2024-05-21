@@ -8,15 +8,39 @@
 import Foundation
 
 class DogApiService: DogService {
-    func saveFavouriteBreed(id: Int, favourited: Bool) {
-        #warning("needs implementing")
+
+    var favouriteBreedIds: Set<Int> = []
+
+
+    private static func fileURL() throws -> URL {
+        try FileManager.default.url(for: .documentDirectory,
+                                    in: .userDomainMask,
+                                    appropriateFor: nil,
+                                    create: false)
+        .appendingPathComponent("breedInfo")
     }
-    
-    func getFavourites() -> [Int] {
-        #warning("needs implementing")
-        return []
+
+    func loadFavouriteBreeds() async throws {
+        let task = Task <Set<Int>, Error> {
+            let fileURL = try Self.fileURL()
+            guard let data = try? Data(contentsOf: fileURL) else {
+                return []
+            }
+            let breedIds = try JSONDecoder().decode(Set<Int>.self, from: data)
+            return breedIds
+        }
+        let breedIds = try await task.value
+        self.favouriteBreedIds = breedIds
     }
-    
+
+    func saveFavouriteBreeds() async throws {
+        let task = Task {
+            let data = try JSONEncoder().encode(favouriteBreedIds)
+            let outfile = try Self.fileURL()
+            try data.write(to: outfile)
+        }
+        _ = try await task.value
+    }
 
     enum APIError: Error {
         case invalidURL
@@ -49,9 +73,13 @@ class DogApiService: DogService {
                     history: dogApiBreedInfo.history,
                     bredFor: dogApiBreedInfo.bredFor,
                     breedGroup: dogApiBreedInfo.breedGroup,
-                    isFavourite: true,
+                    isFavourite: favouriteBreedIds.contains(dogApiBreedInfo.id),
                     onIsFavouritedChanged: { [weak self] isFavourited in
-                        self?.saveFavouriteBreed(id: dogApiBreedInfo.id, favourited: isFavourited)
+                        if isFavourited {
+                            self?.favouriteBreedIds.insert(dogApiBreedInfo.id)
+                        } else {
+                            self?.favouriteBreedIds.remove(dogApiBreedInfo.id)
+                        }
                     }
                 )
             }

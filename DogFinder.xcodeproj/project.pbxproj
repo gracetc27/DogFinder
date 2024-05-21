@@ -28,6 +28,7 @@
 		A34655682BEA8FFA00B19013 /* Data+.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34655672BEA8FFA00B19013 /* Data+.swift */; };
 		A34762742BD9560B00066A3B /* DogBreedProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = A34762732BD9560B00066A3B /* DogBreedProfile.swift */; };
 		A35674012BE4F8D1009424A7 /* DogInfoBlock.swift in Sources */ = {isa = PBXBuildFile; fileRef = A35674002BE4F8D1009424A7 /* DogInfoBlock.swift */; };
+		A37B080B2BFCB294002285DE /* FavouriteDogsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B080A2BFCB294002285DE /* FavouriteDogsList.swift */; };
 		A37B32172BD9469400808F44 /* DogFinderApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B32162BD9469400808F44 /* DogFinderApp.swift */; };
 		A37B32192BD9469400808F44 /* DogListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A37B32182BD9469400808F44 /* DogListView.swift */; };
 		A37B321B2BD9469600808F44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A37B321A2BD9469600808F44 /* Assets.xcassets */; };
@@ -85,6 +86,7 @@
 		A34655672BEA8FFA00B19013 /* Data+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+.swift"; sourceTree = "<group>"; };
 		A34762732BD9560B00066A3B /* DogBreedProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogBreedProfile.swift; sourceTree = "<group>"; };
 		A35674002BE4F8D1009424A7 /* DogInfoBlock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogInfoBlock.swift; sourceTree = "<group>"; };
+		A37B080A2BFCB294002285DE /* FavouriteDogsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteDogsList.swift; sourceTree = "<group>"; };
 		A37B32132BD9469400808F44 /* DogFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DogFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A37B32162BD9469400808F44 /* DogFinderApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogFinderApp.swift; sourceTree = "<group>"; };
 		A37B32182BD9469400808F44 /* DogListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogListView.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				A3ADB0FE2BEBA7DB006FD9F6 /* HomeScreen.swift */,
 				A37B32182BD9469400808F44 /* DogListView.swift */,
 				A3A1DC272BDAB36800260647 /* DogImageListView.swift */,
+				A37B080A2BFCB294002285DE /* FavouriteDogsList.swift */,
 				A34762732BD9560B00066A3B /* DogBreedProfile.swift */,
 				A346555B2BEA4AC300B19013 /* PawSeparator.swift */,
 				A35674002BE4F8D1009424A7 /* DogInfoBlock.swift */,
@@ -410,6 +413,7 @@
 				A346555C2BEA4AC300B19013 /* PawSeparator.swift in Sources */,
 				A37B32192BD9469400808F44 /* DogListView.swift in Sources */,
 				A34081132BDBF9A400CF7897 /* BreedListView.swift in Sources */,
+				A37B080B2BFCB294002285DE /* FavouriteDogsList.swift in Sources */,
 				A38E33682BF23D6E006C2C64 /* BreedInfo.swift in Sources */,
 				A37B32172BD9469400808F44 /* DogFinderApp.swift in Sources */,
 				A34655682BEA8FFA00B19013 /* Data+.swift in Sources */,

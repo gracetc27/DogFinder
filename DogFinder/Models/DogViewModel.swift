@@ -11,8 +11,6 @@ import Foundation
 class DogViewModel {
     var service: DogService
     var breeds: [BreedInfo] = []
-   
-
 
     init(service: DogService) {
         self.service = service
@@ -23,5 +21,13 @@ class DogViewModel {
     }
     func loadImages(_ id: Int?) async -> [DogImage] {
         return await service.loadImages(id: id)
+    }
+
+    func saveFavouriteBreeds() async throws {
+        try await service.saveFavouriteBreeds()
+    }
+
+    func loadFavouriteBreeds() async throws {
+        try await service.loadFavouriteBreeds()
     }
 }

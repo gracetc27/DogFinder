@@ -9,10 +9,24 @@ import SwiftUI
 
 @main
 struct DogFinderApp: App {
+    @State var dogViewModel = DogViewModel(service: DogApiService())
+    @Environment(\.scenePhase) var scenePhase
+    
     var body: some Scene {
         WindowGroup {
             ContentView()
-                .environment(DogViewModel(service: DogApiService()))
+                .environment(dogViewModel)
+                .onChange(of: scenePhase) { _, newPhase in
+                    Task {
+                       if newPhase == .inactive { try? await dogViewModel.saveFavouriteBreeds() }
+                    }
+                }
+                .task {
+                    try? await dogViewModel.loadFavouriteBreeds()
+                }
+                .task {
+                    await dogViewModel.fetchBreeds()
+                }
         }
     }
 }

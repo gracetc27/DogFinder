@@ -10,27 +10,25 @@ import SwiftUI
 struct HomeScreen: View {
     @Environment(DogViewModel.self) var dogViewModel
     var body: some View {
-            VStack {
-                Label("Dog Of The Day", systemImage: "pawprint.fill")
-                    .font(.headline)
-                    .padding(5)
-                Rectangle().frame(minWidth: 350, minHeight: 300)
-
-                HStack {
-                    Image(systemName: "heart.fill")
-                        .foregroundStyle(.red)
-                    Text("Breed Favourites")
-                        .font(.headline)
-                }
+        VStack {
+            Label("Dog Of The Day", systemImage: "pawprint.fill")
+                .font(.headline)
                 .padding(5)
-            
-                DogListView()
-                    .listStyle(.inset)
-                    }
-                }
-            }
-        
+            Rectangle().frame(minWidth: 350, minHeight: 300)
 
+            HStack {
+                Image(systemName: "heart.fill")
+                    .foregroundStyle(.red)
+                Text("Breed Favourites")
+                    .font(.headline)
+            }
+            .padding(5)
+
+            FavouriteDogsList()
+                .listStyle(.inset)
+        }
+    }
+}
 
 
 #Preview {
