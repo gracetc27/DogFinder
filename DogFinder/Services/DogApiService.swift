@@ -53,8 +53,7 @@ class DogApiService: DogService {
             let response = try await loadData(
                 path:"/v1/breeds",
                 queryItems: [ 
-                    URLQueryItem(name: "limit", value: "10"),
-                    URLQueryItem(name: "page", value: "0")
+                    URLQueryItem(name: "limit", value: "125"),
                 ],
                 as: [DogApiBreedInfo].self)
 
@@ -92,7 +91,7 @@ class DogApiService: DogService {
     func loadImages(id: Int? = nil) async -> [DogImage] {
         var queryItems = [
             URLQueryItem(name: "include_breeds", value: "false"),
-            URLQueryItem(name: "page", value: "0"),
+            URLQueryItem(name: "page", value: "1"),
             URLQueryItem(name: "limit", value: "10")
         ]
         if let id {
