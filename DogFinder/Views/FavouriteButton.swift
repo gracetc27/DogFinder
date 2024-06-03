@@ -10,13 +10,13 @@ import SwiftUI
 struct FavouriteButton: View {
     @Binding var isSet: Bool
     var body: some View {
-        Button {
-            isSet.toggle()
-        } label: {
-            Label("Toggle Favorite", systemImage: isSet ? "heart.fill" : "heart")
-                .labelStyle(.iconOnly)
-                .foregroundStyle(isSet ? .red : .black)
-        }
+        Label("Toggle Favorite", systemImage: isSet ? "heart.fill" : "heart")
+            .labelStyle(.iconOnly)
+            .foregroundStyle(isSet ? .red : .black)
+            .accessibilityAddTraits(.isButton)
+            .onTapGesture {
+                isSet.toggle()
+            }
     }
 }
 

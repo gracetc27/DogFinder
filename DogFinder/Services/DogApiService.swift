@@ -52,9 +52,6 @@ class DogApiService: DogService {
         do {
             let response = try await loadData(
                 path:"/v1/breeds",
-                queryItems: [ 
-                    URLQueryItem(name: "limit", value: "125"),
-                ],
                 as: [DogApiBreedInfo].self)
 
             return response.map { dogApiBreedInfo in
@@ -91,8 +88,8 @@ class DogApiService: DogService {
     func loadImages(id: Int? = nil) async -> [DogImage] {
         var queryItems = [
             URLQueryItem(name: "include_breeds", value: "false"),
-            URLQueryItem(name: "page", value: "1"),
-            URLQueryItem(name: "limit", value: "10")
+//            URLQueryItem(name: "page", value: "1"),
+            URLQueryItem(name: "limit", value: "50")
         ]
         if let id {
             let breedIdQuery = URLQueryItem(name: "breed_ids", value: id.formatted())
@@ -110,7 +107,7 @@ class DogApiService: DogService {
         }
     }
 
-    private func loadData<DataModel: Decodable>(path: String, queryItems: [URLQueryItem], as type: DataModel.Type) async throws -> DataModel {
+    private func loadData<DataModel: Decodable>(path: String, queryItems: [URLQueryItem] = [], as type: DataModel.Type) async throws -> DataModel {
         var components = URLComponents()
         components.host = "api.thedogapi.com"
         components.scheme = "https"

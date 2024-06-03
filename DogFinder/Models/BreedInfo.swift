@@ -12,7 +12,7 @@ struct BreedInfo: Identifiable {
     let id: Int
     let name: String
     let lifeSpan: String
-    let temperament: String
+    let temperament: String?
     let referenceImageId: String
     let image: DogImage
     let height, weight: MeasurementSystem

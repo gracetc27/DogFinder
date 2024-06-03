@@ -16,13 +16,30 @@ struct FavouriteDogsList: View {
             ForEach($dogViewModel.breeds) { $breed in
                 if $breed.isFavourite.wrappedValue {
                     NavigationLink {
-                        DogBreedProfile(breedInfo: $breed)
+                        DogBreedProfileWrapperView(breedInfo: $breed)
                     } label: {
                         BreedListView(dogProfile: breed)
                     }
                 }
             }
         }
+    }
+}
+
+private struct DogBreedProfileWrapperView: View {
+    @Binding var breedInfo: BreedInfo
+    @State var internalBreedInfo: BreedInfo
+
+    init(breedInfo: Binding<BreedInfo>) {
+        self._breedInfo = breedInfo
+        self._internalBreedInfo = State(initialValue: breedInfo.wrappedValue)
+    }
+
+    var body: some View {
+        DogBreedProfile(breedInfo: $internalBreedInfo)
+            .onDisappear {
+                breedInfo = internalBreedInfo
+            }
     }
 }
 

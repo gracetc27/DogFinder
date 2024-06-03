@@ -40,10 +40,10 @@ struct DogBreedProfile: View {
         }
         
         .navigationTitle("\(breedInfo.name):")
-        .toolbar(content: {
+        .toolbar {
             FavouriteButton(isSet: $breedInfo.isFavourite)
                 .buttonStyle(.plain)
-        })
+        }
     }
 }
 

@@ -15,7 +15,9 @@ struct DogInfoBlock: View {
             InfoStyle(headline: "Life Span:", info: "\(breedInfo.lifeSpan)")
             InfoStyle(headline: "Height:", info: "\(breedInfo.height.forLocale(locale))")
             InfoStyle(headline: "Weight:", info: "\(breedInfo.weight.forLocale(locale))")
-            InfoStyle(headline: "Temperament:", info: "\(breedInfo.temperament)")
+            if let temperament = breedInfo.temperament {
+                InfoStyle(headline: "Temperament:", info: "\(temperament)")
+            }
             if let bredFor = breedInfo.bredFor {
                 InfoStyle(headline: "Bred for:", info: "\(bredFor)")
             }
