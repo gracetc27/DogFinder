@@ -9,6 +9,7 @@ import Foundation
 
 
 struct BreedInfo: Identifiable {
+    
     let id: Int
     let name: String
     let lifeSpan: String
