@@ -14,7 +14,7 @@ struct DogBreedProfile: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 5) {
+            VStack(spacing: 3) {
                 ScrollView(.horizontal) {
                     LazyHStack(spacing: 0) {
                         ForEach(dogImages) { image in
@@ -25,18 +25,15 @@ struct DogBreedProfile: View {
                         .clipped()
                     }
                 }
-                .border(Color.black, width: 5)
-
+                
                 PawSeparator()
 
                 DogInfoBlock(breedInfo: breedInfo)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .border(Color.black, width: 5)
             }
             .task {
                 dogImages = await dogViewModel.loadImages(breedInfo.id)
             }
-            .padding(.horizontal, 5)
         }
         
         .navigationTitle("\(breedInfo.name):")

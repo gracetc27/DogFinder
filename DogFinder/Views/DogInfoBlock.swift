@@ -31,7 +31,7 @@ struct DogInfoBlock: View {
                 InfoStyle(headline: "Description:", info: "\(description)")
             }
         }
-        .padding()
+        .padding(.horizontal)
     }
 }
 

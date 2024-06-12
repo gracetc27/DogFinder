@@ -14,7 +14,13 @@ struct HomeScreen: View {
             Label("Dog Of The Day", systemImage: "pawprint.fill")
                 .font(.headline)
                 .padding(5)
-            Rectangle().frame(minWidth: 350, minHeight: 300)
+            VStack(spacing: 2) {
+                DogOfTheDayImage()
+                    .frame(height: 350)
+                    .frame(maxWidth: .infinity)
+                    .clipped()
+            }
+            PawSeparator()
 
             HStack {
                 Image(systemName: "heart.fill")

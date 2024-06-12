@@ -44,6 +44,7 @@
 		A3A1DC2A2BDAB3EC00260647 /* DogImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3A1DC292BDAB3EC00260647 /* DogImageView.swift */; };
 		A3ADB0FB2BEB80BE006FD9F6 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADB0FA2BEB80BE006FD9F6 /* ContentView.swift */; };
 		A3ADB0FF2BEBA7DB006FD9F6 /* HomeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3ADB0FE2BEBA7DB006FD9F6 /* HomeScreen.swift */; };
+		A3CE6B652C107F8B004B50C9 /* DogOfTheDayImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3CE6B642C107F8B004B50C9 /* DogOfTheDayImage.swift */; };
 		A3D06B792BEE298100BE8214 /* FavouriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3D06B782BEE298100BE8214 /* FavouriteButton.swift */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		A3A1DC292BDAB3EC00260647 /* DogImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogImageView.swift; sourceTree = "<group>"; };
 		A3ADB0FA2BEB80BE006FD9F6 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A3ADB0FE2BEBA7DB006FD9F6 /* HomeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScreen.swift; sourceTree = "<group>"; };
+		A3CE6B642C107F8B004B50C9 /* DogOfTheDayImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DogOfTheDayImage.swift; sourceTree = "<group>"; };
 		A3D06B782BEE298100BE8214 /* FavouriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavouriteButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,6 +167,7 @@
 				A3A1DC292BDAB3EC00260647 /* DogImageView.swift */,
 				A34081122BDBF9A400CF7897 /* BreedListView.swift */,
 				A3D06B782BEE298100BE8214 /* FavouriteButton.swift */,
+				A3CE6B642C107F8B004B50C9 /* DogOfTheDayImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -324,7 +327,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1530;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					A37B32122BD9469400808F44 = {
 						CreatedOnToolsVersion = 15.3;
@@ -422,6 +425,7 @@
 				A3ADB0FB2BEB80BE006FD9F6 /* ContentView.swift in Sources */,
 				A35674012BE4F8D1009424A7 /* DogInfoBlock.swift in Sources */,
 				A3A1DC2A2BDAB3EC00260647 /* DogImageView.swift in Sources */,
+				A3CE6B652C107F8B004B50C9 /* DogOfTheDayImage.swift in Sources */,
 				A34655632BEA600E00B19013 /* DogApiService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,7 +643,6 @@
 		A37B323B2BD9469600808F44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -659,7 +662,6 @@
 		A37B323C2BD9469600808F44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
@@ -679,7 +681,6 @@
 		A37B323E2BD9469600808F44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DG4449RVDY;
@@ -697,7 +698,6 @@
 		A37B323F2BD9469600808F44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = DG4449RVDY;

@@ -18,12 +18,11 @@ struct DogImageListView: View {
                         .frame(height: 350)
                         .frame(maxWidth: .infinity)
                         .clipped()
-                        .border(Color.black, width: 5)
+                       
 
                    PawSeparator()
                 }
             }
-            .padding(.horizontal)
         }
         .task {
           dogImages = await dogViewModel.loadImages(nil)

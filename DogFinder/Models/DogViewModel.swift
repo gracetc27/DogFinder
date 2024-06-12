@@ -11,6 +11,16 @@ import Foundation
 class DogViewModel {
     var service: DogService
     var breeds: [BreedInfo] = []
+    var dogOfTheDay: BreedInfo? {
+        guard !breeds.isEmpty else { return nil }
+        let dayOfYear = Calendar.autoupdatingCurrent.ordinality(of:
+                .day, in: .year, for: .now)!
+        let breedCount = breeds
+            .count
+        let index = ((dayOfYear - 1) % breedCount)
+        let breed = breeds[index]
+        return breed
+    }
 
     init(service: DogService) {
         self.service = service
