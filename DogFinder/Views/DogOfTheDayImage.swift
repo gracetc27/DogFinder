@@ -15,7 +15,7 @@ struct DogOfTheDayImage: View {
             DogImageView(dogImage: breed.image)
                 .overlay(alignment: .bottomTrailing) {
                     Text(breed.name)
-                        .font(.headline.bold())
+                        .font(.title2.bold())
                         .background(.ultraThinMaterial, in: .rect(cornerRadius: 7))
                 }
         } else {

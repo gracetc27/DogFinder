@@ -10,24 +10,20 @@ import SwiftUI
 struct HomeScreen: View {
     @Environment(DogViewModel.self) var dogViewModel
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Label("Dog Of The Day", systemImage: "pawprint.fill")
-                .font(.headline)
+                .font(.title.bold())
                 .padding(5)
-            VStack(spacing: 2) {
-                DogOfTheDayImage()
-                    .frame(height: 350)
-                    .frame(maxWidth: .infinity)
-                    .clipped()
-            }
-            PawSeparator()
-
+            DogOfTheDayImage()
+                .frame(height: 350)
+                .frame(maxWidth: .infinity)
+                .clipped()
             HStack {
                 Image(systemName: "heart.fill")
                     .foregroundStyle(.red)
                 Text("Breed Favourites")
-                    .font(.headline)
             }
+            .font(.title.bold())
             .padding(5)
 
             FavouriteDogsList()
