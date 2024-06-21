@@ -9,7 +9,6 @@ import Foundation
 
 
 struct BreedInfo: Identifiable {
-    
     let id: Int
     let name: String
     let lifeSpan: String
@@ -22,7 +21,6 @@ struct BreedInfo: Identifiable {
     var isFavourite: Bool {
         didSet { onIsFavouritedChanged(isFavourite) }
     }
-
     var onIsFavouritedChanged: (Bool) -> Void
 }
 

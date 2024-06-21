@@ -15,7 +15,7 @@ struct DogImageListView: View {
             LazyVStack {
                 ForEach(dogImages) { dogImage in
                     DogImageView(dogImage: dogImage)
-                        .frame(height: 350)
+                        .frame(height: 400)
                         .frame(maxWidth: .infinity)
                         .clipped()
                        
