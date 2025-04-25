@@ -39,8 +39,18 @@ import Foundation
     ]
 
     #expect(sutResult == serviceResult)
-
 }
+
+@Test func fetchImagesResponseFailure() async {
+    let sut = DogViewModel(service: FakeDogServiceFailure())
+    let id = 3
+
+    let sutResult = await sut.loadImages(id)
+
+    #expect(sutResult == [])
+}
+
+
 class FakeDogServiceSuccess: DogService {
     func fetchBreeds() async throws -> [BreedInfo] {
         [
