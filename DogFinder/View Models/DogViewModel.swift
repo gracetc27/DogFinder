@@ -28,8 +28,8 @@ class DogViewModel {
 
     func fetchBreeds() async {
         breeds = await service.fetchBreeds()
-
     }
+    
     func loadImages(_ id: Int?) async -> [DogImage] {
         return await service.loadImages(id: id)
     }
