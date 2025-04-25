@@ -48,44 +48,40 @@ class DogApiService: DogService {
 
     private let apiKey = getApiKey()
 
-    func fetchBreeds() async -> [BreedInfo] {
-        do {
-            let response = try await loadData(
-                path:"/v1/breeds",
-                as: [DogApiBreedInfo].self)
+    func fetchBreeds() async throws -> [BreedInfo] {
+        let response = try await loadData(
+            path:"/v1/breeds",
+            as: [DogApiBreedInfo].self)
 
-            return response.map { dogApiBreedInfo in
-                BreedInfo(
-                    id: dogApiBreedInfo.id,
-                    name: dogApiBreedInfo.name,
-                    lifeSpan: dogApiBreedInfo.lifeSpan,
-                    temperament: dogApiBreedInfo.temperament,
-                    referenceImageId: dogApiBreedInfo.referenceImageId,
-                    image: dogApiBreedInfo.image,
-                    height: dogApiBreedInfo.height,
-                    weight: dogApiBreedInfo.weight,
-                    countryCode: dogApiBreedInfo.countryCode,
-                    description: dogApiBreedInfo.description,
-                    history: dogApiBreedInfo.history,
-                    bredFor: dogApiBreedInfo.bredFor,
-                    breedGroup: dogApiBreedInfo.breedGroup,
-                    isFavourite: favouriteBreedIds.contains(dogApiBreedInfo.id),
-                    onIsFavouritedChanged: { [weak self] isFavourited in
-                        if isFavourited {
-                            self?.favouriteBreedIds.insert(dogApiBreedInfo.id)
-                        } else {
-                            self?.favouriteBreedIds.remove(dogApiBreedInfo.id)
-                        }
+        return response.map { dogApiBreedInfo in
+            BreedInfo(
+                id: dogApiBreedInfo.id,
+                name: dogApiBreedInfo.name,
+                lifeSpan: dogApiBreedInfo.lifeSpan,
+                temperament: dogApiBreedInfo.temperament,
+                referenceImageId: dogApiBreedInfo.referenceImageId,
+                image: dogApiBreedInfo.image,
+                height: dogApiBreedInfo.height,
+                weight: dogApiBreedInfo.weight,
+                countryCode: dogApiBreedInfo.countryCode,
+                description: dogApiBreedInfo.description,
+                history: dogApiBreedInfo.history,
+                bredFor: dogApiBreedInfo.bredFor,
+                breedGroup: dogApiBreedInfo.breedGroup,
+                isFavourite: favouriteBreedIds.contains(dogApiBreedInfo.id),
+                onIsFavouritedChanged: { [weak self] isFavourited in
+                    if isFavourited {
+                        self?.favouriteBreedIds.insert(dogApiBreedInfo.id)
+                    } else {
+                        self?.favouriteBreedIds.remove(dogApiBreedInfo.id)
                     }
-                )
-            }
-        } catch {
-            return []
+                }
+            )
         }
     }
 
     
-    func loadImages(id: Int? = nil) async -> [DogImage] {
+    func loadImages(id: Int? = nil) async throws -> [DogImage] {
         var queryItems = [
             URLQueryItem(name: "include_breeds", value: "false"),
 //            URLQueryItem(name: "page", value: "1"),
@@ -95,16 +91,11 @@ class DogApiService: DogService {
             let breedIdQuery = URLQueryItem(name: "breed_ids", value: id.formatted())
             queryItems.append(breedIdQuery)
         }
-
-        do {
             return try await loadData(
                 path: "/v1/images/search",
                 queryItems: queryItems,
                 as: [DogImage].self
             )
-        } catch {
-            return []
-        }
     }
 
     private func loadData<DataModel: Decodable>(path: String, queryItems: [URLQueryItem] = [], as type: DataModel.Type) async throws -> DataModel {

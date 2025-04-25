@@ -10,11 +10,11 @@ import Foundation
 class MockDogService: DogService {
 
     var favouriteBreeds: Set<Int> = []
-    func loadImages(id: Int?) async -> [DogImage] {
+    func loadImages(id: Int?) async throws -> [DogImage] {
         loadJson(fileName: "BreedImages-\(id ?? 3).json", asType: [DogImage].self)
     }
     
-    func fetchBreeds() async -> [BreedInfo] {
+    func fetchBreeds() async throws -> [BreedInfo] {
         return loadJson(fileName: "breeds.json", asType: [DogApiBreedInfo].self)
             .map { dogApiBreedInfo in
             BreedInfo(

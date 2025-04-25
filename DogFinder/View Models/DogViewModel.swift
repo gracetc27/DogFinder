@@ -27,11 +27,19 @@ class DogViewModel {
     }
 
     func fetchBreeds() async {
-        breeds = await service.fetchBreeds()
+        do {
+            breeds = try await service.fetchBreeds()
+        } catch {
+            breeds = []
+        }
     }
     
     func loadImages(_ id: Int?) async -> [DogImage] {
-        return await service.loadImages(id: id)
+        do {
+            return try await service.loadImages(id: id)
+        } catch {
+            return []
+        }
     }
 
     func saveFavouriteBreeds() async throws {
