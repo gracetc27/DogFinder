@@ -25,8 +25,26 @@ struct BreedInfo: Equatable, Identifiable {
     var onIsFavouritedChanged: (Bool) -> Void
 
     static func == (lhs: BreedInfo, rhs: BreedInfo) -> Bool {
-        lhs.id == rhs.id
+        if lhs.id == rhs.id &&
+            lhs.name == rhs.name &&
+            lhs.lifeSpan == rhs.lifeSpan &&
+            lhs.temperament == rhs.temperament &&
+            lhs.referenceImageId == rhs.referenceImageId &&
+            lhs.image == rhs.image &&
+            lhs.height == rhs.height &&
+            lhs.weight == rhs.weight &&
+            lhs.countryCode == rhs.countryCode &&
+            lhs.description == rhs.description &&
+            lhs.history == rhs.history &&
+            lhs.bredFor == rhs.bredFor &&
+            lhs.breedGroup == rhs.breedGroup &&
+            lhs.isFavourite == rhs.isFavourite {
+                return true
+        } else {
+            return false
+        }
     }
 }
+
 
 

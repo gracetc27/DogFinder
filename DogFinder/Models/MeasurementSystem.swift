@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct MeasurementSystem: Codable {
+struct MeasurementSystem: Codable, Equatable {
     let imperial, metric: String
 }
 
