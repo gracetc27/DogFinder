@@ -8,7 +8,8 @@
 import Foundation
 
 
-struct BreedInfo: Identifiable {
+struct BreedInfo: Equatable, Identifiable {
+
     let id: Int
     let name: String
     let lifeSpan: String
@@ -22,6 +23,10 @@ struct BreedInfo: Identifiable {
         didSet { onIsFavouritedChanged(isFavourite) }
     }
     var onIsFavouritedChanged: (Bool) -> Void
+
+    static func == (lhs: BreedInfo, rhs: BreedInfo) -> Bool {
+        lhs.id == rhs.id
+    }
 }
 
 

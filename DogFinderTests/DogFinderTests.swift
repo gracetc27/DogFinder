@@ -5,32 +5,38 @@
 //  Created by Grace couch on 24/04/2024.
 //
 
-import XCTest
+import Testing
 @testable import DogFinder
+import Foundation
 
-final class DogFinderTests: XCTestCase {
+@Test func successBreedsAssignedFromFetchBreeds() async {
+    let sut = DogViewModel(service: FakeDogService())
+    #expect(sut.breeds == [])
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    await sut.fetchBreeds()
+
+    #expect(sut.breeds[0].name == "Staffy")
+    #expect(sut.breeds[0].id == 0)
+    #expect(sut.breeds[0].bredFor == "fighting")
+}
+
+class FakeDogService: DogService {
+    func fetchBreeds() async -> [DogFinder.BreedInfo] {
+        let breeds = [
+            BreedInfo(id: 0, name: "Staffy", lifeSpan: "13", temperament: "Dopey", referenceImageId: "0", image: DogImage(id: "0", url: URL(string: "google.com")!), height: MeasurementSystem(imperial: "10", metric: "10"), weight: MeasurementSystem(imperial: "10", metric: "10"), countryCode: "UK", description: "Lovely dog", history: "sad history of fighting", bredFor: "fighting", breedGroup: "Terrier", isFavourite: true, onIsFavouritedChanged: { _ in })
+        ]
+        return breeds
     }
-
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+    
+    func loadImages(id: Int?) async -> [DogFinder.DogImage] {
+        let dogImages = [
+            DogImage(id: "1", url: URL(string: "google.com")!)
+        ]
+        return dogImages
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
-    }
-
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    
+    func saveFavouriteBreeds() async throws {}
+    
+    func loadFavouriteBreeds() async throws {}
 
 }
